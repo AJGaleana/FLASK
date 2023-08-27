@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+    <title>BlogPosts - Iniciar sesón</title>
+
+    
+    <!-- Estilos de bootstrap y de app -->
+    {% block head%}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/login.css')}}">
+    {% endblock %}
+
+    {% block header%}
+    {% endblock %}
+    
+    <!-- Login -->
+    {% block content%}
+    <section class="login">
+        <main class="form-signin w-100 m-auto text-center">
+            <img class="mb-4" src="{{url_for('static', filename='img/bp-dark.png')}}" alt="" width="230">
+            <h1 class="h3 mb-3 fw-normal"> {% block title %}Iniciar sesión {% endblock%}</h1>
+            <form method="post">
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="email" name="email" require placeholder="name@example.com">
+                    <label for="email">Correo</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="password" name="password" required placeholder="Password">
+                    <label for="password">Contraseña</label>
+                </div>
+    
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Recordar datos
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
+            </form>
+            <hr class="my-4">
+            <p class="text-muted text-center">Si no tienes una cuenta en Y-BLOG haz clic en
+                <a href="{{url_for('auth.registerVIEW')}}">Crear cuenta</a>
+            </p>
+        </main>
+    </section>
+
+    {% endblock %}
+
